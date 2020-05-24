@@ -2,15 +2,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>2601ffe9-d233-4516-abc6-318217288ba1</ProjectGuid>
+    <ProjectGuid>7628bc84-ddd7-433d-8df5-7c5caf37c971</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SNHU_CS_Capstone_main.py</StartupFile>
+    <StartupFile>Python_Testing.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
-    <Name>SNHU CS Capstone</Name>
-    <RootNamespace>SNHU CS Capstone</RootNamespace>
+    <Name>Python Testing</Name>
+    <RootNamespace>Python Testing</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,16 +21,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Login.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="AddUsers.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="SNHU_CS_Capstone_main.py" />
+    <Compile Include="Python_Testing.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

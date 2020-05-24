@@ -1,4 +1,10 @@
 {
-  "ExpandedNodes": [],
+  "ExpandedNodes": [
+    "",
+    "\\Python Testing",
+    "\\SNHU CS Capstone",
+    "\\SNHU CS Capstone\\__pycache__"
+  ],
+  "SelectedNode": "\\SNHU CS Capstone\\Login.py",
   "PreviewInSolutionExplorer": false
 }

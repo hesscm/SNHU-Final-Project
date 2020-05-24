@@ -1,0 +1,84 @@
+package it145finalproject;
+import java.io.File;
+import java.security.MessageDigest;
+import java.util.Scanner;
+
+public class IT145FinalProject {
+
+    public static void main(String[] args) throws Exception {
+        Scanner readInput = new Scanner(System.in); //create scanner for input
+        int inputAttempts = 0; //create variable to track input attempts
+        boolean passwordMatch = false; //used to check for correct passwords
+
+        /*Repeat until a successful attempt has been made or
+        three unsuccessful attempts have been made or
+        a user chooses to exit*/
+        
+        //Initial welcome message        
+        System.out.print("Welcome to the zoo computer system! Please enter your credentials to continue. You have 3 attempts before the system logs you out.\n");
+
+        while(true) { //Large loop to check for number of attempts.
+
+            System.out.print("Enter user name: ");
+            String userNameInput = readInput.nextLine();
+            System.out.print("Enter password: ");
+            
+            /* The following is the copy and pasted code from the MD5Digest
+               file. Adjusted the "original" string to read the input instead
+               of being hard coded.
+            */
+            String original = readInput.nextLine(); 
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(original.getBytes());
+            byte[] digest = md.digest();
+            StringBuffer sb = new StringBuffer();
+		for (byte b : digest) {
+                    sb.append(String.format("%02x", b & 0xff));
+		}
+		System.out.println(sb);
+                
+            //Search through the credentials file
+            Scanner credentialsFile = new Scanner(new File("credentials.txt"));
+                 
+            while(credentialsFile.hasNextLine()) {             
+                String userCredentials = credentialsFile.nextLine();//Read a record
+
+                String columns[] = userCredentials.split("\t"); //split the columns by tab
+
+                //Check if username input matches a name from column 0  
+                if(columns[0].trim().equals(userNameInput)) {            
+                    if(columns[1].trim().equals(sb.toString())) { 
+                        //Check for a match. If true, set boolean to true.
+                        passwordMatch = true;
+                        //Scan and display appropriate file that is listed in last column
+                        Scanner jobFile = new Scanner(new File(columns[3].trim()+".txt"));
+                        while(jobFile.hasNextLine()) {                   
+                            System.out.println(jobFile.nextLine());
+                        }                        
+                        break;
+                    }
+                }
+            }
+            //Allow user to log out if they are logged in(boolean = true)
+            if(passwordMatch) {                 
+                System.out.println("Press 'q' to log out.");
+                String logOut = readInput.next();
+                if(logOut.charAt(0) == 'q') {                   
+                    System.out.println("Log out complete. See you next time!");
+                    break;
+                }
+            }                
+            //Record number of log in attempts. If/else to exit or enter the loop again.
+            else {
+                inputAttempts++;
+                if(inputAttempts == 3) {
+                    System.out.println("Maximum number of failed log ins reached. Goodbye.");
+                    break;
+                }
+                else {
+                    System.out.println("Incorrect username or password. Please try again.");     
+                }
+            }
+        }
+    }
+}
