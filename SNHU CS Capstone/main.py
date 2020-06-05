@@ -8,7 +8,6 @@
 
 import Login, MainMenu, AddUsers
 import os
-import hashlib
 #Below is needed for MongoDB
 #import bottle
 #import json
@@ -39,7 +38,7 @@ def main():
                 loginAttempts = Login.loginAttempt() #Existing users log in with Login module
                 if loginAttempts == 1: #Login attempts exceeded, exit program
                     break
-                MainMenu.readFile(loginAttempts) #Log in to role
+                MainMenu.readFile(loginAttempts) #Log in to role and view its menu/submenus
                 break
             elif userChoice == 3:
                 break

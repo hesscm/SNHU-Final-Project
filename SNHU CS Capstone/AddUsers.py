@@ -44,7 +44,6 @@ def createNewUser():
 
     #ensure user did not type an error in password
     if password == confirmPassword:
-
         while True:
             try:
                 print("\nPlease select your role.")

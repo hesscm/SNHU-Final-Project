@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>2601ffe9-d233-4516-abc6-318217288ba1</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>SNHU_CS_Capstone_main.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,7 +30,7 @@
     <Compile Include="AddUsers.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SNHU_CS_Capstone_main.py" />
+    <Compile Include="main.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
