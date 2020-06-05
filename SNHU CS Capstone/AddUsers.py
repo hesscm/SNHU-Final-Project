@@ -17,16 +17,12 @@ def hashAlgorithm(username, password, role):
 #Check to see if the username is already taken
 def checkUserName(username):
     with open("credentials.txt") as myfile:
-        lines = myfile.readlines()
-
-    i = 0
-    for userList in lines:
-        userList = re.split('\t', lines[i].replace('\n', '')) #line split into a list, eliminate the new line at the end of the user
-        if username == userList[0]:
-            print("Username already taken")
-            return True
-        i += 1
-    return False
+        for line in myfile:
+            userList = re.split('\t', line.replace('\n', '')) #line split into a list, eliminate the new line at the end of the user
+            if username == userList[0]:
+                print("Username already taken")
+                return True
+        return False
 
 #Main function for creating a new user
 def createNewUser():

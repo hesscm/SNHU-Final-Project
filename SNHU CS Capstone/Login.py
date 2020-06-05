@@ -2,6 +2,8 @@ import os
 import hashlib
 import re
 
+role = ""
+
 #Get username and password
 def getCredentials():
     userName = input("Enter user name: ")
@@ -14,13 +16,15 @@ def loginAttempt():
     attemptCounter = 3 #track attempts
 
     while(attemptCounter > 0):
-        username, password = getCredentials()
 
+        username, password = getCredentials()
         #iterate through credentials file to search for matching credentials
         #Stops searching when a match is found
         with open("credentials.txt") as file:
             for line in file:
+
                 userList = re.split('\t', line.replace('\n', '')) #line split into a list, eliminate the new line at the end of the user
+                print(userList)
                 new_key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), eval(userList[1]), 100000)
 
                 #check if username and hash match
@@ -28,16 +32,14 @@ def loginAttempt():
                     print("\nLogin successful!\n")
                     role = (userList[3])
                     return role
-                else:
-                    if attemptCounter == 3:
-                        print("Incorrect user name and password. You have 2 attempts remaining. Please try again.")
-                        attemptCounter -= 1
-                        break
-                    elif attemptCounter == 2:
-                        print("Incorrect user name and password. You have 1 attempt remaining. Please try again.")
-                        attemptCounter -= 1
-                        break
-                    else:
-                        print("You have exceeded the allowed log in attempts. Exiting program...")
-                        return attemptCounter
+          
+            if attemptCounter == 3:
+                print("Incorrect user name and password. You have 2 attempts remaining. Please try again.")
+                attemptCounter -= 1
+            elif attemptCounter == 2:
+                print("Incorrect user name and password. You have 1 attempt remaining. Please try again.")
+                attemptCounter -= 1
+            else:
+                print("You have exceeded the allowed log in attempts. Exiting program...")
+                return attemptCounter
 

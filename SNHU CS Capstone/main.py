@@ -6,7 +6,7 @@
 #Still to be added: database for animals, menus for users, CRUD operations for users.
 
 
-import Login, MainMenu, AddUsers
+import Login, RoleMenus, AddUsers
 import os
 #Below is needed for MongoDB
 #import bottle
@@ -38,7 +38,7 @@ def main():
                 loginAttempts = Login.loginAttempt() #Existing users log in with Login module
                 if loginAttempts == 1: #Login attempts exceeded, exit program
                     break
-                MainMenu.readFile(loginAttempts) #Log in to role and view its menu/submenus
+                RoleMenus.readFile(loginAttempts) #Log in to role and view its menu/submenus
                 break
             elif userChoice == 3:
                 break

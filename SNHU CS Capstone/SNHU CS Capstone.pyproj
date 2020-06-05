@@ -21,7 +21,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MainMenu.py">
+    <Compile Include="CRUDoperations.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RoleMenus.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Login.py">
