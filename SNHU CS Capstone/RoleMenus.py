@@ -1,3 +1,5 @@
+import CRUDoperations
+
 #Obtain role from main, open welcome file depending on role and go to specific role submenu
 def readFile(role):
     file = open(role + ".txt")
@@ -14,31 +16,24 @@ def readFile(role):
 
 #Specified CRUD options for zookeeper
 def zookeeper_menu(role):
-    print("\n***Please select an option***")
-    print("1. View an Animal")
-    print("2. Edit an Animal")
-    print("3. Insert a New Animal")
-    print("4. Delete an Animal")
-    print("5. Quit")
-    print(role)
-   
-  
 
     while(True):
+        print("\n***Please select an option***")
+        print("1. View an Animal")
+        print("2. Edit an Animal")
+        print("3. Insert a New Animal")
+        print("4. Delete an Animal")
+        print("5. Quit\n")
         try:
             choice = int(input("Enter a number: "))
             if choice == 1:
                 search_animal(role)
-                break
             elif choice == 2:
-                print("FIX ME")
-                break
+                CRUDoperations.update_document(role)
             elif choice == 3:
-                print("FIX ME")
-                break
+                CRUDoperations.insert_document(role)
             elif choice == 4:
-                print("FIX ME")
-                break
+                CRUDoperations.delete_document(role)
             elif choice == 5:
                 break
             else:
@@ -46,36 +41,35 @@ def zookeeper_menu(role):
         except ValueError:
             print("Input failed. Please type an integer.")
           
+#Menu for administrator. Employee access information to still to be created
 def admin_menu(role):
-    print("\n***Please select an option***")
-    print("1. Search for a Specific User")
-    print("2. View All Users")
-    print("3. View Zookeeper Menu")
-    print("4. View Veterinarian Menu")
-    print("5. Quit")
 
     while(True):
+        print("\n***Please select an option***")
+        print("1. Search for a Specific User")
+        print("2. View All Users")
+        print("3. View Zookeeper Menu")
+        print("4. View Veterinarian Menu")
+        print("5. Quit")
         try:
             choice = int(input("Enter a number: "))
             if choice == 1:
                 print("FIX ME")
-                break
             elif choice == 2:
                 print("FIX ME")
-                break
             elif choice == 3:
                 zookeeper_menu(role)
-                break
             elif choice == 4:
                 veterinarian_menu(role)
-                break
-            if choice == 5:
+            elif choice == 5:
                 break
             else:
                 print("You did not enter a valid number. Please try again.")
         except ValueError:
             print("Input failed. Please type an integer.")
 
+#Menu for veterinarian. They are only able to edit medical records.
+#FIX ME: ENABLE SECURITY MEASURES SO VETS CANNOT EDIT OTHER ATTRIBUTES
 def veterinarian_menu(role):
     print("\n***Please select an option***")
     print("1. View an Animal's Medical Records")
@@ -89,7 +83,7 @@ def veterinarian_menu(role):
                 search_animal(role)
                 break
             elif choice == 2:
-                print("edit_animal()")
+                CRUDoperations.update_document(role)
                 break
             elif choice == 3:
                 break
@@ -98,7 +92,8 @@ def veterinarian_menu(role):
         except ValueError:
             print("Input failed. Please type an integer.")
 
-
+#Submenu to choose how the user wants to search for a document
+#FIX ME: This method could potentially move to CRUDoperations.py
 def search_animal(role):
 
     print("\n***Please select an option***")
@@ -112,14 +107,15 @@ def search_animal(role):
         try:
             choice = int(input("Enter a number: "))
             if choice == 1:
-                print("FIX ME")
+                CRUDoperations.find_documents(1, role)
                 break
             elif choice == 2:
-                print("FIX ME")
+                CRUDoperations.find_documents(2, role)
                 break
             elif choice == 3:
-                print("FIX ME")
+                CRUDoperations.find_documents(3, role)
                 break
+            #Return to the user's main menu
             elif choice == 4:
                 if role =="zookeeper":
                     zookeeper_menu(role)

@@ -3,17 +3,10 @@
 #new users to create a user ID, password, and zoo role. Once logged in, they will be redirected
 #to their appropriate role's menu. The passsword is encrypted with the SHA-256 algorithm using Python's
 #pbkdf2_hmac() hashing method. 
-#Still to be added: database for animals, menus for users, CRUD operations for users.
+#Still to be added: Polishing, more exception checks, reduce redundancies, create employees collection
 
-
-import Login, RoleMenus, AddUsers
+import Login, RoleMenus, AddUsers, CRUDoperations
 import os
-#Below is needed for MongoDB
-#import bottle
-#import json
-#import pprint
-#from bson import json_util
-#from pymongo import MongoClient
 
 #I had trouble getting Visual Studio to recognize the correct directory so I used this command to change the directory
 #os.chdir(r"C:\Users\Hess\source\repos\hesscm.github.io\SNHU CS Capstone")
@@ -32,7 +25,7 @@ def main():
                 newUser = AddUsers.createNewUser() #Go to AddUsers module
                 if newUser == "failure": #Exit loop and exit program
                     break
-                MainMenu.readFile(newUser) #Account creation successful, log in to role
+                RoleMenus.readFile(newUser) #Account creation successful, log in to role
                 break
             elif userChoice == 2:
                 loginAttempts = Login.loginAttempt() #Existing users log in with Login module
@@ -42,21 +35,16 @@ def main():
                 break
             elif userChoice == 3:
                 break
+            elif userChoice == 4:
+                CRUDoperations.test()
             else:
                 print("Please enter a valid number.")
         except ValueError:
             print("Input failed. Please type an integer.")
 
         print()
-      
+
+#Start program, print text upon exit of program      
 main()
 print("Goodbye!")
-
-#Personal notes for flow:
-
-#use credentials to determine which menu to use
-#use user input from menu to determine a submenu: get animal, change user credentials, etc.
-#   maybe put that in the same class?
-#use that input to connect via PyMongo to MongoDB zoo database
-#give user chance to do something else or quit, probably just go back to the original menu
         

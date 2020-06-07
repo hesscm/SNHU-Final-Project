@@ -2,8 +2,6 @@ import os
 import hashlib
 import re
 
-role = ""
-
 #Get username and password
 def getCredentials():
     userName = input("Enter user name: ")
@@ -24,7 +22,6 @@ def loginAttempt():
             for line in file:
 
                 userList = re.split('\t', line.replace('\n', '')) #line split into a list, eliminate the new line at the end of the user
-                print(userList)
                 new_key = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), eval(userList[1]), 100000)
 
                 #check if username and hash match
