@@ -13,8 +13,9 @@ import os
 
 def main():
 
+    print("***Welcome to the zoo computer system! Please enter your credentials to continue.*** \n***You have 3 attempts before the system logs you out.***\n")
     while True:
-        print("Welcome to the zoo computer system! Please enter your credentials to continue. You have 3 attempts before the system logs you out.\n")
+        
         print("Are you a new or existing user?") #Option to log in or create new account
         print("1. New User")
         print("2. Existing User")
@@ -22,7 +23,8 @@ def main():
         try:
             userChoice = int(input("Select an option: "))
             if userChoice == 1:
-                newUser = AddUsers.createNewUser() #Go to AddUsers module
+                role = "none"
+                newUser = AddUsers.createNewUser(role) #Go to AddUsers module
                 if newUser == "failure": #Exit loop and exit program
                     break
                 RoleMenus.readFile(newUser) #Account creation successful, log in to role
@@ -35,10 +37,8 @@ def main():
                 break
             elif userChoice == 3:
                 break
-            elif userChoice == 4:
-                CRUDoperations.test()
             else:
-                print("Please enter a valid number.")
+                print("\nPlease enter a valid number.")
         except ValueError:
             print("Input failed. Please type an integer.")
 

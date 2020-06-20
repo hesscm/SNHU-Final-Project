@@ -24,6 +24,9 @@
     <Compile Include="CRUDoperations.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AdminCRUD.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="RoleMenus.py">
       <SubType>Code</SubType>
     </Compile>
