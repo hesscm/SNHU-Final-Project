@@ -1,4 +1,6 @@
 import CRUDoperations
+import AdminCRUD
+import AddUsers
 
 #Obtain role from main, open welcome file depending on role and go to specific role submenu
 def readFile(role):
@@ -48,20 +50,32 @@ def admin_menu(role):
         print("\n***Please select an option***")
         print("1. Search for a Specific User")
         print("2. View All Users")
-        print("3. View Zookeeper Menu")
-        print("4. View Veterinarian Menu")
-        print("5. Quit")
+        print("3. Add a User")
+        print("4. Update a User")
+        print("5. Delete a User")
+        print("6. View Zookeeper Menu")
+        print("7. View Veterinarian Menu")
+        print("8. Quit")
         try:
             choice = int(input("Enter a number: "))
             if choice == 1:
-                print("FIX ME")
+                AdminCRUD.find_documents(choice)
             elif choice == 2:
-                print("FIX ME")
+                AdminCRUD.find_documents(choice)
+            #Create user credentials and then add employee to database
             elif choice == 3:
-                zookeeper_menu(role)
+                print("Transitioning to New User process...")
+                AddUsers.createNewUser(role)
+                AdminCRUD.insert_document()
             elif choice == 4:
-                veterinarian_menu(role)
+                AdminCRUD.update_document()
             elif choice == 5:
+                AdminCRUD.delete_document()
+            elif choice == 6:
+                zookeeper_menu(role)
+            elif choice == 7:
+                veterinarian_menu(role)
+            elif choice == 8:
                 break
             else:
                 print("You did not enter a valid number. Please try again.")
@@ -69,22 +83,20 @@ def admin_menu(role):
             print("Input failed. Please type an integer.")
 
 #Menu for veterinarian. They are only able to edit medical records.
-#FIX ME: ENABLE SECURITY MEASURES SO VETS CANNOT EDIT OTHER ATTRIBUTES
 def veterinarian_menu(role):
-    print("\n***Please select an option***")
-    print("1. View an Animal's Medical Records")
-    print("2. Edit an Animal's Medical Records")
-    print("3. Quit")
+
 
     while(True):
+        print("\n***Please select an option***")
+        print("1. View an Animal's Medical Records")
+        print("2. Edit an Animal's Medical Records")
+        print("3. Quit")
         try:
             choice = int(input("Enter a number: "))
             if choice == 1:
                 search_animal(role)
-                break
             elif choice == 2:
                 CRUDoperations.update_document(role)
-                break
             elif choice == 3:
                 break
             else:
@@ -93,14 +105,13 @@ def veterinarian_menu(role):
             print("Input failed. Please type an integer.")
 
 #Submenu to choose how the user wants to search for a document
-#FIX ME: This method could potentially move to CRUDoperations.py
 def search_animal(role):
 
     print("\n***Please select an option***")
     print("1. Search for an Animal by Name")
     print("2. Search for an Animal by ID")
     print("3. View All Animals")
-    print("4. Previous Menu")
+    print("4. Main Menu")
     print("5. Quit")
 
     while(True):

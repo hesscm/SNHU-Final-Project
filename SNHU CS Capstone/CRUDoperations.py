@@ -82,36 +82,50 @@ def find_documents(choice, role):
 #Update a document with the user specified attributes
 def update_document(role):
     #Choose the animal to update
-    print("\nPlease enter the ID of the animal you wish to update.\n")
-    userAnimal = input("Animal ID: ")
-    animalToUpdate = {"ID" : userAnimal}
-    result = animals.find_one(animalToUpdate)
-    pprint.pprint(result)
+    while True:
+        print("\nPlease enter the ID of the animal you wish to update.\n")
+        userAnimal = input("Animal ID: ")
+        animalToUpdate = {"ID" : userAnimal}
+        result = animals.find_one(animalToUpdate)
+        pprint.pprint(result)
 
-    #Ensure correct entry
-    print("\nIs this the correct entry? Type 'yes' to confirm.\n")
-    confirm = input("Confirm: ")
+        #Ensure correct entry
+        print("\nIs this the correct entry? Type 'yes' to confirm.\n")
+        confirm = input("Confirm: ")
 
-    if confirm == "yes":
-        #Choose attribute to update
-        print("\nPlease enter the attribute of the animal you would like to update.")
-        updatedAttribute = input("Enter title of attribute: ")
-        updateView = animals.find_one(animalToUpdate, {"_id" : 0, updatedAttribute : 1})
-        print("You want to update: " + str(updateView))
+        if confirm == "yes":
+            #Choose attribute to update
+            print("\nPlease enter the attribute of the animal you would like to update.")
+            updatedAttribute = input("Enter title of attribute: ")
 
-        entry = input("Updated data: ")
-        print("")
-        print(entry)
+            #security check that roles only edit authorized attributes
+            if role == "veterinarian":
+                if updatedAttribute not in ("Diet","General Welfare","Height","Weight","Vaccinations"):
+                    print("\nYou do not have the appropriate privileges to change these attributes.")
+                    continue #try again
+            if role == "zookeeper":
+                if updatedAttribute in ("Vaccinations"):
+                    print("\nYou do not have the appropriate privileges to change these attributes.")
+                    continue #try again
 
-        #Send new update to MongoDB and print confirmation to screen
-        newUpdate = {"$set" : {updatedAttribute : entry}}
-        print(newUpdate)
-        animals.update_one(animalToUpdate, newUpdate)
-        newResult = animals.find_one(animalToUpdate)
-        pprint.pprint(newResult)
+            updateView = animals.find_one(animalToUpdate, {"_id" : 0, updatedAttribute : 1})
+            print("You want to update: " + str(updateView))
 
-    else:
-        print("Please try again.") 
+            entry = input("Updated data: ")
+            print("")
+            print(entry)
+
+            #Send new update to MongoDB and print confirmation to screen
+            newUpdate = {"$set" : {updatedAttribute : entry}}
+            print(newUpdate)
+            animals.update_one(animalToUpdate, newUpdate)
+            newResult = animals.find_one(animalToUpdate)
+            pprint.pprint(newResult)
+            break
+
+        else:
+            print("Please try again.")
+        
 
 #Delete a document
 def delete_document(role):
