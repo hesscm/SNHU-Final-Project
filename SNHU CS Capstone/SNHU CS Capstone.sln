@@ -8,7 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DBF96880-ABE9-468A-B6FA-76239A6CE815}"
 	ProjectSection(SolutionItems) = preProject
 		admin.txt = admin.txt
+		..\..\..\..\OneDrive\School\CS\Computer Science Capstone\animalsCollection.json = ..\..\..\..\OneDrive\School\CS\Computer Science Capstone\animalsCollection.json
 		credentials.txt = credentials.txt
+		..\..\..\..\OneDrive\School\CS\Computer Science Capstone\employeesCollection.json = ..\..\..\..\OneDrive\School\CS\Computer Science Capstone\employeesCollection.json
 		..\..\..\..\Desktop\bottle tests\fpPyMongoCRUD.py = ..\..\..\..\Desktop\bottle tests\fpPyMongoCRUD.py
 		OriginalJavaCode.txt = OriginalJavaCode.txt
 		passwords.txt = passwords.txt
