@@ -16,7 +16,7 @@ This capstone takes a project from one of my very first programming classes and 
 
 This video shows the final project from my Java-based course IT-145: Foundations in Application Development. I introduce the project, talk about how the user interacts with the program, how the code works, and my plans for improving the weaknesses and vulnerabilities found in the code review.
 
-https://www.youtube.com/watch?v=3tqgLBmKNVw
+Link to [code review] (https://www.youtube.com/watch?v=3tqgLBmKNVw)
 
 
 ## III. The Artifact and Narratives
@@ -39,17 +39,27 @@ The major aspect of my original project that was missing was a lack of organizat
 
 Database inclusion limits the amount of data structures needed, so I decided to include a credentials file that can be parsed through to show my ability in solving algorithmic and logic puzzles. This credentials file includes the username, their SHA-256 password hash, and their role. An example of parsing a login attempt is here:
 
+```
+git status
+git add
+git commit
+```
+
 The method opens the file and checks for a successful username and hash match using a linear search algorithm and exits upon completion. Algorithmic thinking is not limited to the use of data structures, and evidence of problem solving can be seen in every module of this program.
 
 ### E. Databases
 
-I have created a MongoDB zoo database with collections for both animals and employees. Basic users have limited CRUD capabilities while administrators have access to the full system. An example of the functionality from the user interface can be seen in the image below:
- 
-Databases are a critical tool for any software developer and this program proves my proficiency in creating an easy-to-use user interface that connects to a MongoDB database. 
+I have created a MongoDB zoo database with collections for both animals and employees. Basic users have limited CRUD capabilities while administrators have access to the full system. An example of the functionality from the user interface can be seen [here] (https://imgur.com/a/soReU8e). Databases are a critical tool for any software developer and this program proves my proficiency in creating an easy-to-use user interface that connects to a MongoDB database. 
 
 ### F. Security
 
 The last category that needs to be addressed is security. To be honest, it is very easy to overlook security when writing a program. A developer needs to change their mindset from “how do I make this work” to “how do I make this work safely and efficiently”. Security is more than protecting the program from outside hackers. You must also protect the program from user attacks and from the program itself. I have used multiple iterations of try/except clauses to make sure the program does not crash in event of an incorrect input. An example of that, from ‘main.py’ is here:
+
+```
+git status
+git add
+git commit
+```
 
 I have also ensured users can only access their authorized data and cannot add, edit, or delete data that does not belong to them. The three pillars of security are confidentiality, integrity, and availability and I believe I have shown that I have thought of each pillar while developing this program. 
 
