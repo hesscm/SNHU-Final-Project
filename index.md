@@ -5,7 +5,7 @@ Hello and welcome to my ePortfolio! This page will serve as an introduction to v
 
 ### B. My Capstone Project
 
-As of summer 2020, the main focus of this ePortfolio will be my capstone project for the Computer Science program at Southern New Hampshire University. This project shows my proficiency in software engineering, algorithms and problem solving, database accessibility, and security. The entire project can be found and pulled from the latest commit from [this branch].(https://github.com/hesscm/hesscm.github.io/tree/ZooProgram1.0)
+As of summer 2020, the main focus of this ePortfolio will be my capstone project for the Computer Science program at Southern New Hampshire University. This project shows my proficiency in software engineering, algorithms and problem solving, database accessibility, and security. The entire project can be found and pulled from the latest commit from [this branch](https://github.com/hesscm/hesscm.github.io/tree/ZooProgram1.0).
 
 This capstone takes a project from one of my very first programming classes and improves it dramatically. The original program was written in Java and the final product is in Python with connectivity to a MongoDB database. 
 
