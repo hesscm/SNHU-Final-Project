@@ -2,14 +2,11 @@
 #has been developed in Python with more added features. Currently, this program allows
 #new users to create a user ID, password, and zoo role. Once logged in, they will be redirected
 #to their appropriate role's menu. The passsword is encrypted with the SHA-256 algorithm using Python's
-#pbkdf2_hmac() hashing method. 
-#Still to be added: Polishing, more exception checks, reduce redundancies, create employees collection
+#pbkdf2_hmac() hashing method. Users can access the MongoDB "animals" database, while the administrator
+#is able to access the "employees" database.
+
 
 import Login, RoleMenus, AddUsers, CRUDoperations
-import os
-
-#I had trouble getting Visual Studio to recognize the correct directory so I used this command to change the directory
-#os.chdir(r"C:\Users\Hess\source\repos\hesscm.github.io\SNHU CS Capstone")
 
 def main():
 

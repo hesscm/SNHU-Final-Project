@@ -1,11 +1,10 @@
-
 import bottle
 import json
 import pprint
 from bson import json_util
 from pymongo import MongoClient
 
-#Connect to local host, zoo database, employees and employees collections
+#Connect to local host, zoo database, and employees collections
 connection = MongoClient('localhost', 27017)
 db = connection['zoo'] 
 employees = db['employees']
@@ -27,7 +26,6 @@ def insert_document():
     result = employees.find_one({"ID": id})
     pprint.pprint(result) #use pprint for better readability
     print("New employee document creation successful!")
-
 
 #Search database for requested documents. 
 def find_documents(choice):

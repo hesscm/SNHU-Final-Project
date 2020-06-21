@@ -8,7 +8,6 @@ def getCredentials():
     userPassword = input("Enter password: ")
     return userName, userPassword
 
-
 #Existing user login attempt main function
 def loginAttempt():
     attemptCounter = 3 #track attempts
