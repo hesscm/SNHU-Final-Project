@@ -1,6 +1,7 @@
+## I. Professional Self-Assessment/Introduction
+
 ## Note: Check out the other branch for the Python code to this project.
 
-## I. Professional Self-Assessment/Introduction
 ### A. My Experiences
 
 Hello and welcome to my ePortfolio! This page will serve as an introduction to various programming projects of mine, and will build over time to prove proficiency in the fundamentals of computer science. During my time at Southern New Hampshire University, I have worked in the following languages/technologies/databases: Python, Java, C++, Maven, OpenGL, MongoDB/RESTful API, MySQL and JMP for data mining. I also have an understanding of agile methodology, UML, and strong fundamentals in information technology and network security. Through the use of agile practices in combination with working on projects with Git, I have had experience working on a team and communicating with stakeholders. 
