@@ -1,4 +1,4 @@
-## I. Professional Self-Assessment/Introduction
+# I. Professional Self-Assessment/Introduction
 
 ## Note: Check out the other branch for the Python code to this project.
 
@@ -13,12 +13,12 @@ As of summer 2020, the main focus of this ePortfolio will be my capstone project
 This capstone takes a project from one of my very first programming classes and improves it dramatically. The original program was written in Java and the final product is in Python with connectivity to a MongoDB database. 
 
 
-## II. Code Review
+# II. Code Review
 
 This video shows the final project from my Java-based course IT-145: Foundations in Application Development. I introduce the project, talk about how the user interacts with the program, how the code works, and my plans for improving the weaknesses and vulnerabilities found in the [code review](https://www.youtube.com/watch?v=3tqgLBmKNVw).
 
 
-## III. The Artifact and Narratives
+# III. The Artifact and Narratives
 
 ###	A. Artifact Description and Inclusion Justification
 
